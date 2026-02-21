@@ -3,20 +3,24 @@ export function Button({buttonText, type, disabled}){
         <button 
             type={type}
             disabled={disabled}
+
+            /**
+             * btn-block == w-full
+             * btn-primary == bg-blue-600 + son hover + epaisseur du texte + text-color
+             */
             className="
-                w-full
-                py-1.5 lg:py-3
-                my-4
-                rounded-lg
-                bg-blue-600
+                btn 
+                btn-block
+                bg-blue-800
+                opacity-80
+                hover:opacity-100
+                text-lg
                 text-white
-                font-semibold
-                text-xs lg:text-sm  
-                hover:bg-blue-800
-                md:px-8
+                rounded-lg
                 transition-colors
-                duration-400
-            ">
+                duration-500
+                "
+            >
                 {buttonText}
         </button>
     )
@@ -26,28 +30,20 @@ export function CodeButton({icone, text, type="button"}){
     return(
         <button 
             className="
-                flex
-                justify-center
-                w-full
-                py-1.5 lg:py-3
-                rounded-lg
-                font-semibold
+                btn
+                bg-blue-100
+                text-black
                 border-2
                 border-blue-800
-                bg-blue-50
+                rounded-lg
+                btn-block
+                hover:bg-blue-800
                 hover:text-white
-                hover:bg-blue-700
-                md:w-full
                 transition-colors
-                duration-400
+                duration-500
             ">
-            <span className="md:mr-5" >{icone}</span>
-            <span 
-                className="
-                    whitespace-nowrap
-                    text-[0.65rem]
-                    md:text-sm
-                " >{text}</span>
+            <span className="md:mr-7" >{icone}</span>
+            {text}
                 
         </button>
     )
