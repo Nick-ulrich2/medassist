@@ -9,16 +9,16 @@ export function Button({buttonText, type, disabled}){
              * btn-primary == bg-blue-600 + son hover + epaisseur du texte + text-color
              */
             className="
-                btn 
-                btn-block
-                bg-blue-800
-                opacity-80
-                hover:opacity-100
-                text-lg
-                text-white
-                rounded-lg
-                transition-colors
-                duration-500
+                w-full
+                px-5 py-3
+                bg-blue-500
+                text-lg font-bold text-white
+                rounded-xl
+                transition-all
+                duration-300
+                cursor-pointer
+                hover:bg-blue-700
+                hover:scale-y-105
                 "
             >
                 {buttonText}
@@ -40,7 +40,7 @@ export function CodeButton({icone, text, type="button"}){
                 hover:bg-blue-800
                 hover:text-white
                 transition-colors
-                duration-500
+                duration-300
             ">
             <span className="md:mr-7" >{icone}</span>
             {text}
