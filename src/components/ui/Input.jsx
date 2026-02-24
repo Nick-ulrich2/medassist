@@ -1,5 +1,5 @@
 
-export function Input({ type, value, onChange, id, placeholder, icone }) {
+export function Input({ type = "text", value, onChange, id, placeholder, icone = "" }) {
     return (
         <div className="
             input
@@ -43,7 +43,7 @@ export function Input({ type, value, onChange, id, placeholder, icone }) {
     )
 }
 
-export function InputPassword({ type, value, onChange, id, placeholder, icone1 , icone2 }) {
+export function InputPassword({ type, value, onChange, id, placeholder, icone1, icone2 }) {
     return (
         <div className="
             input
