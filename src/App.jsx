@@ -7,6 +7,7 @@ import Page3 from "./pages/RegisterPages/Page3";
 import Page4 from "./pages/RegisterPages/Page4";
 import Page5 from "./pages/RegisterPages/Page5";
 import Page6 from "./pages/RegisterPages/Page6";
+import PageSecrete from "./pages/RegisterPages/PageSecrete";
 
 function App() {
     return (
@@ -17,7 +18,8 @@ function App() {
             {/* <Page3/> */}
             {/* <Page4/> */}
             {/* <Page5/> */}
-            <Page6/>
+            <PageSecrete />
+            {/* <Page6/> */}
         </div>
     )
 };

@@ -52,7 +52,7 @@ const Page2 = () => {
                     md:max-w-85 lg:max-w-85
                 '
                 >
-                    <div className='w-full'>
+                    <div className='w-full m-9'>
                         <h1
                             className='
                             text-2xl text-start font-bold text-blue-900
@@ -63,6 +63,10 @@ const Page2 = () => {
                         >
                             Civilite
                         </h1>
+
+                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
+                            Etes vous : 
+                        </p>
                     </div>
 
                     <div className='w-full'>

@@ -6,11 +6,13 @@ import {
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 
+const PageSecrete = () => {
 
-const Page3 = () => {
+    const [password, setPassword] = useState("");
+    const [verifyPassword, setVerifyPassword] = useState("");
 
-    const [name, setName] = useState("");
-    const [firstName, setFirstName] = useState("");
+    // Code secret en cas d'oubli du mot de passe 
+    const [hideCode, setHideCode] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -44,35 +46,46 @@ const Page3 = () => {
                             md:text-3xl
                             '
                         >
-                            Nom Complet
+                            Codes secrets
                         </h1>
-
                         <p className='text-xs text-shadow-2xs font-medium leading-5'>
-                            Comment devons nous vous appeler? 
+                            Securisez votre compte avec un mot de passe
                         </p>
                     </div>
 
                     <div className='w-full'>
+
                         <Input
-                            value={name}
-                            id="name"
-                            onChange={e => setName(e.target.value)}
-                            placeholder="Votre nom svp"
+                            value={password}
+                            id="password"
+                            type='password'
+                            onChange={e => setPassword(e.target.value)}
+                            placeholder="Votre mot de passe"
                         />
 
                         <Input
-                            value={firstName}
-                            id="firstName"
-                            onChange={e => setFirstName(e.target.value)}
-                            placeholder="Votre prenom svp"
-                        />  
+                            value={verifyPassword}
+                            id="verify Password"
+                            type='password'
+                            onChange={e => setVerifyPassword(e.target.value)}
+                            placeholder="Saisissez le a nouveau "
+                        />
 
-                        <Button buttonText="Continuons"/>
+                        <Input
+                            value={hideCode}
+                            id="hideCode"
+                            type='password'
+                            onChange={e => setHideCode(e.target.value)}
+                            placeholder="Code en cas d'oublie du mot de passe"
+                        />
+
+                        <Button buttonText="Continuons" />
                     </div>
                 </form>
             </AuthPage>
+
         </div>
     )
 }
 
-export default Page3
+export default PageSecrete

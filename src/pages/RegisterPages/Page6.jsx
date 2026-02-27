@@ -33,30 +33,43 @@ const Page6 = () => {
                     md:max-w-85 lg:max-w-85
                 '
                 >
-                    <div className='w-full'>
+                    <div className='w-full m-9'>
                         <h1
                             className='
                             text-2xl text-start font-bold text-blue-900
-                            mb-3
+                            mb-2
                             opacity-95
                             md:text-3xl
                             '
                         >
                             Verification
                         </h1>
+                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
+                            Vous n'allez pas tarder a recevoir <br /> 
+                            un code de Verification via Whatsapp, <br />
+                            svp saisissez le ici 
+                        </p>
                     </div>
 
                     <div className='w-full'>
                        
                         <Input
+                            className="-mb-1"
                             value={code}
                             id="verify code"
                             type='password'
                             onChange={e => setCode(e.target.value)}
                             placeholder="Saisir le code "
                         />
+                        <span className='text-xs -mt-1'>
+                            <p className='text-red-500'>Renvoyez le code</p>
+                            <p>
+                                Renvoi du code disponible dans 
+                                <strong> compteur decrementant</strong> 
+                            </p>
+                        </span>
 
-                        <Button buttonText="Continuons" />
+                        <Button buttonText="Verifier" />
                     </div>
                 </form>
             </AuthPage>
