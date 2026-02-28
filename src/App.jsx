@@ -12,13 +12,13 @@ import PageSecrete from "./pages/RegisterPages/PageSecrete";
 function App() {
     return (
         <div>
-            {/* <Login/> */}
+            <Login/>
             {/* <Page1/> */}
             {/* <Page2/> */}
             {/* <Page3/> */}
             {/* <Page4/> */}
             {/* <Page5/> */}
-            <PageSecrete />
+            {/* <PageSecrete /> */}
             {/* <Page6/> */}
         </div>
     )

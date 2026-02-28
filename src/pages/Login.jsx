@@ -102,7 +102,7 @@ const Login = () => {
                 </div>
                 <div className='w-full text-sm text-center mt-2 mb-3'>
                     <span>Vous n'avez pas de compte ? </span>
-                    <span><a href='#' className='text-blue-800 font-bold underline'>Créer un compte</a></span>
+                    <span><a href='../pages/RegisterPages/Page1.jsx' className='text-blue-800 font-bold underline'>Créer un compte</a></span>
                 </div>
                 <div
                     className='
