@@ -6,7 +6,7 @@ export function Input({ type = "text", value, onChange, id, placeholder, icone =
             flex 
             w-full
             h-12
-            mb-3
+            mb-0.5
             border
             border-gray-300
             rounded-[10px]

@@ -27,14 +27,13 @@ const Login = () => {
                     flex-col
                     justify-center
                     items-center
-                    md:max-w-85 lg:max-w-85
                 '
             >
 
                 <div className='w-full'>
                     <h1
                         className='
-                            text-2xl text-start font-bold text-blue-900
+                            text-2xl text-center font-bold text-blue-900
                             mb-3
                             opacity-95
                             md:text-3xl
@@ -53,7 +52,7 @@ const Login = () => {
                         placeholder="Adresse e-mail"
                         icone={
                             <EnvelopeIcon
-                                className='w-3 opacity-70 md:w-3.5'
+                                className='w-4 opacity-70 '
                             />
                         }
                     />
@@ -64,8 +63,8 @@ const Login = () => {
                         id="password"
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Mot de passe"
-                        icone1={<LockClosedIcon className='w-4 opacity-70 md:w-3.5' />}
-                        icone2={<EyeIcon className='w-4 opacity-70 md:w-3.5' />}
+                        icone1={<LockClosedIcon className='w-4 opacity-70' />}
+                        icone2={<EyeIcon className='w-4 opacity-70' />}
                     />
                 </div>
 

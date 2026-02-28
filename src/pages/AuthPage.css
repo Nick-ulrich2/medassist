@@ -1,11 +1,11 @@
 .back{
-  background-image: url('/public/background2.png');
+  background-image: url('/background.png');
   background-size: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .back {
-    background-image: url('/public/logo123.png'); /* commentes un peu la ligne ci pour voir comment ca se presente*/
-    background-size: auto; /*changes un peu la valeur a cover toujours pour voir puis effaces ces commentaires stp*/
+    background-image: url('/logo123.png'); 
+    background-size: auto; 
   }
 }
