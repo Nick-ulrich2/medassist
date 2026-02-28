@@ -8,9 +8,9 @@ import { Button } from '../../components/ui/Button';
 
 const Page5 = () => {
 
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [whatsappNumber, setWhatsappNumber] = useState("");
-    const [password, setPassword] = useState("");
-    const [verifyPassword, setVerifyPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -34,7 +34,7 @@ const Page5 = () => {
                     md:max-w-85 lg:max-w-85
                 '
                 >
-                    <div className='w-full'>
+                    <div className='w-full m-9'>
                         <h1
                             className='
                             text-2xl text-start font-bold text-blue-900
@@ -45,9 +45,23 @@ const Page5 = () => {
                         >
                             Contact
                         </h1>
+                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
+                            Vous n'allez pas tarder a recevoir <br />
+                            un code de Verification via Whatsapp, <br />
+                            svp saisissez le ici
+                        </p>
                     </div>
 
                     <div className='w-full'>
+
+                        {/* Numero joignable direct */}
+                        <Input
+                            value={phoneNumber}
+                            id="phoneNumber"
+                            onChange={e => setPhoneNumber(e.target.value)}
+                            placeholder="Votre numero joignable"
+                        />
+
                         <Input
                             value={whatsappNumber}
                             id="whatsappNumber"
@@ -56,19 +70,10 @@ const Page5 = () => {
                         />
 
                         <Input
-                            value={password}
-                            id="password"
-                            type='password'
-                            onChange={e => setPassword(e.target.value)}
-                            placeholder="Votre mot de passe"
-                        />
-
-                        <Input
-                            value={verifyPassword}
-                            id="verify Password"
-                            type='password'
-                            onChange={e => setVerifyPassword(e.target.value)}
-                            placeholder="Saisissez le a nouveau "
+                            value={email}
+                            id="email"
+                            onChange={e => setEmail(e.target.value)}
+                            placeholder="Votre adresse mail"
                         />
 
                         <Button buttonText="Continuons" />

@@ -28,4 +28,8 @@
 - Application de la classe back sur le conteneur principal AuthPage
 
 
-{Il manque aussi a ajouter les textes complementaires partout }
+{
+    Il manque aussi a ajouter les textes complementaires partout
+
+    Il faut aussi ajouter une icone pour le changement de langues  
+}
