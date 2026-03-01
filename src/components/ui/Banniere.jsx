@@ -4,7 +4,7 @@ export function Banniere(){
             <img src="/logo123.png" alt="" className="w-15"/>
             <div className="flex flex-col" >
                 <div className="flex justify-start items-center opacity-90">
-                    <span className="text-4xl font-black font-sans " style={{fontFamily: "Inter"}}>MedAssist</span>
+                    <span className="text-4xl font-black font-sans " >MedAssist</span>
                     <div className="w-8 h-8">
                         <svg viewBox="0 0 48 48" >
                             <line x1="24" y1="12" x2="24" y2="24" stroke="#1e88e5" strokeWidth="7" strokeLinecap="square" strokeLinejoin="round"/>
@@ -26,7 +26,7 @@ export function SimpleBanniere(){
             <div className="flex items-center justify-center gap-2 w-full text-blue-950 py-5">
                 <img src="/logo123.png" alt="" className="w-15"/>
                 <div className="flex justify-start items-center opacity-90">
-                    <span className="text-4xl font-black font-sans " style={{fontFamily: "Inter"}}>MedAssist</span>
+                    <span className="text-4xl font-black font-sans ">MedAssist</span>
                     <div className="w-8 h-8">
                         <svg viewBox="0 0 48 48" >
                             <line x1="24" y1="12" x2="24" y2="24" stroke="#1e88e5" strokeWidth="7" strokeLinecap="square" strokeLinejoin="round"/>

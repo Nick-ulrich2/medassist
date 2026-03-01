@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import { Input, InputPassword } from '../components/ui/Input'
 import { EnvelopeIcon, LockClosedIcon, EyeIcon } from "@heroicons/react/16/solid";
 import { Button, CodeButton } from '../components/ui/Button';
@@ -101,7 +102,11 @@ const Login = () => {
                 </div>
                 <div className='w-full text-sm text-center mt-2 mb-3'>
                     <span>Vous n'avez pas de compte ? </span>
-                    <span><a href='#' className='text-blue-800 font-bold underline'>Créer un compte</a></span>
+                    <span>
+                        <Link to="/Page1" className='text-blue-800 font-bold underline'>
+                            Créer un compte
+                        </Link>
+                    </span>
                 </div>
                 <div
                     className='
