@@ -38,3 +38,7 @@
 - j'ai enleve la police inter car elle est a serif automatiquement
 - Les liens vers les differentes pages fonctionnent
 - Realisation d'une timeline en cours
+
+01 / 03/ 2026 (T F A)
+- Ajustement de la taille des RegisterButton de maniere responsive
+- Ajout de la transparence sur le fond blanc de la AuthPage (bg-white/75)
