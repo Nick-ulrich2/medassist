@@ -8,6 +8,7 @@ import {
     ArrowRightIcon,
     ShieldCheckIcon
 } from "@heroicons/react/24/outline";
+import { Link } from 'react-router-dom';
 
 const Page2 = () => {
 
@@ -44,7 +45,6 @@ const Page2 = () => {
                     action="#"
                     className='
                     w-full
-                    m-2 
                     flex
                     flex-col
                     justify-center
@@ -52,10 +52,10 @@ const Page2 = () => {
                     md:max-w-85 lg:max-w-85
                 '
                 >
-                    <div className='w-full m-9'>
+                    <div className='w-full m-5'>
                         <h1
                             className='
-                            text-2xl text-start font-bold text-blue-900
+                            text-4xl text-start font-bold text-blue-900
                             mb-3
                             opacity-95
                             md:text-3xl
@@ -64,7 +64,7 @@ const Page2 = () => {
                             Civilite
                         </h1>
 
-                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
+                        <p className='text-md text-shadow-2xs font-medium leading-5'>
                             Etes vous : 
                         </p>
                     </div>
@@ -72,14 +72,14 @@ const Page2 = () => {
                     <div className='w-full'>
                         {
                             civilites.map((civilite) => (
-                                <div className='m-2' key={civilite.title}>
+                                <Link to="/Page3" key={civilite.title}>
                                     <RegisterButton
                                         leftIcon={civilite.leftIcon}
                                         title={civilite.title}
                                         rightIcon={civilite.rightIcon}
                                     />
 
-                                </div>
+                                </Link>
                             ))
                         }
                     </div>

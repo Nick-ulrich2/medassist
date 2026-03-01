@@ -9,6 +9,7 @@ import { Button } from '../../components/ui/Button';
 const Page6 = () => {
 
     const [code, setCode] = useState("");
+    const [counter, setCounter] = useState(59);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,7 +18,7 @@ const Page6 = () => {
 
     return (
         <div>
-       <AuthPage admin={
+            <AuthPage admin={
                 <ShieldCheckIcon className="h-6 w-6 text-gray-500" />
             }>
                 <form
@@ -45,14 +46,14 @@ const Page6 = () => {
                             Verification
                         </h1>
                         <p className='text-xs text-shadow-2xs font-medium leading-5'>
-                            Vous n'allez pas tarder a recevoir <br /> 
+                            Vous n'allez pas tarder a recevoir <br />
                             un code de Verification via Whatsapp, <br />
-                            svp saisissez le ici 
+                            svp saisissez le ici
                         </p>
                     </div>
 
                     <div className='w-full'>
-                       
+
                         <Input
                             className="-mb-1"
                             value={code}
@@ -64,8 +65,9 @@ const Page6 = () => {
                         <span className='text-xs -mt-1'>
                             <p className='text-red-500'>Renvoyez le code</p>
                             <p>
-                                Renvoi du code disponible dans 
-                                <strong> compteur decrementant</strong> 
+                                Renvoi du code disponible dans
+                                
+                                    
                             </p>
                         </span>
 

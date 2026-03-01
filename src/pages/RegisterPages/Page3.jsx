@@ -27,7 +27,6 @@ const Page3 = () => {
                     action="#"
                     className='
                     w-full
-                    m-2 
                     flex
                     flex-col
                     justify-center
@@ -35,11 +34,11 @@ const Page3 = () => {
                     md:max-w-85 lg:max-w-85
                 '
                 >
-                    <div className='w-full m-9'>
+                    <div className='w-full m-5'>
                         <h1
                             className='
-                            text-2xl text-start font-bold text-blue-900
-                            mb-3
+                            text-4xl text-start font-bold text-blue-900
+                            mb-2
                             opacity-95
                             md:text-3xl
                             '
@@ -47,7 +46,7 @@ const Page3 = () => {
                             Nom Complet
                         </h1>
 
-                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
+                        <p className='text-md text-shadow-2xs font-medium leading-5'>
                             Comment devons nous vous appeler? 
                         </p>
                     </div>

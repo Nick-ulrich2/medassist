@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import AuthPage from '../AuthPage'
 import { RegisterButton } from '../../components/ui/Button';
 import {
@@ -67,28 +68,27 @@ const Page1 = () => {
                     onSubmit={handleSubmit}
                     action="#"
                     className='
-                    w-full
-                    m-2 
-                    flex
-                    flex-col
-                    justify-center
-                    items-center
-                    md:max-w-85 lg:max-w-85
-                '
+                        flex
+                        w-full
+                        flex-col
+                        justify-center
+                        items-center
+                        md:max-w-85 lg:max-w-85
+                    '
                 >
-                    <div className='w-full m-9'>
+                    <div className='w-full m-5'>
                         <h1
                             className='
-                            text-2xl text-start font-bold text-blue-900
-                            mb-3
+                            text-4xl text-start font-bold text-blue-900
+                            mb-2
                             opacity-95
                             md:text-3xl
                             '
                         >
                             S'inscrire
                         </h1>
-                        <p className='text-xs text-shadow-2xs font-medium leading-5'>
-                            Creer en tant que: 
+                        <p className='text-md text-shadow-2xs font-medium leading-5'>
+                            Creer en tant que:
                         </p>
                     </div>
 
@@ -96,15 +96,19 @@ const Page1 = () => {
 
                         {
                             profiles.map((profile) => (
-                                <div className='m-2' key={profile.title}>
+                                <Link
+                                    to={
+                                        profile.title == "Patient" && "/Page2"
+                                    }
+                                    key={profile.title}
+                                >
                                     <RegisterButton
                                         leftIcon={profile.leftIcon}
                                         title={profile.title}
                                         description={profile.description}
                                         rightIcon={profile.rightIcon}
                                     />
-
-                                </div>
+                                </Link>
                             ))
                         }
                     </div>
