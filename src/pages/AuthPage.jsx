@@ -87,7 +87,7 @@ const AuthPage = ({ children, admin = "" }) => {
             md:gap-6 
             md:w-2/5 
             text-blue-950 
-            pt-5
+            md:pt-5
           "
         >
           <div>
@@ -105,7 +105,8 @@ const AuthPage = ({ children, admin = "" }) => {
           flex-col
           items-center
           z-10
-          md:bg-white
+
+          md:bg-white/75
           md:rounded-2xl
           md:shadow-2xl
           xl:w-3/5

@@ -31,7 +31,6 @@ const Page6 = () => {
                     flex-col
                     justify-center
                     items-center
-                    md:max-w-85 lg:max-w-85
                 '
                 >
                     <div className='w-full m-9'>
