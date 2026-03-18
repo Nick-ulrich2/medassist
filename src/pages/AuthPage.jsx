@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
@@ -10,45 +10,93 @@ const AuthPage = ({ children, admin = "" }) => {
 
   let location = useLocation();
 
-  // const [timelineColor, setTimelineColor] = useState("");
-  const [timelineColor, setTimelineColor] = useState({
-    color1: "",
-    color2: "",
-    color3: "",
-    color4: "",
-    color5: "",
-    colorSecrete: "",
-    color6: "",
-    color7: ""
-  });
+  // Je n'ai pas encore trouve un moyen optimal de gerer ceci, utilisons d'abord cette methode
+  const [color1, setColor1] = useState("");
+  const [color2, setColor2] = useState("");
+  const [color3, setColor3] = useState("");
+  const [color4, setColor4] = useState("");
+  const [color5, setColor5] = useState("");
+  const [colorSecrete, setColorSecrete] = useState("");
+  const [color6, setColor6] = useState("");
+  const [color7, setColor7] = useState("");
 
-  // Gerons les changements de colorations des traits du timeline
-  if (location.pathname == "/Page1" || location.pathname == "/Page2" || location.pathname == "/Page3" || location.pathname == "/Page4" || location.pathname == "/Page5" || location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color1 = "bg-primary";
-    // setTimelineColor(color1 = "bg-primary");
-  }
-  else if (location.pathname == "/Page2" || location.pathname == "/Page3" || location.pathname == "/Page4" || location.pathname == "/Page5" || location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color2 = "bg-primary";
-  }
-  else if (location.pathname == "/Page3" || location.pathname == "/Page4" || location.pathname == "/Page5" || location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color3 = "bg-primary";
-  }
-  else if (location.pathname == "/Page4" || location.pathname == "/Page5" || location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color4 = "bg-primary";
-  }
-  else if (location.pathname == "/Page5" || location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color5 = "bg-primary";
-  }
-  else if (location.pathname == "/PageSecrete" || location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.colorSecrete = "bg-primary";
-  }
-  else if (location.pathname == "/Page6" || location.pathname == "/Page7") {
-    // timelineColor.color6 = "bg-primary";
-  }
-  else if (location.pathname == "/Page7") {
-    // timelineColor.color7 = "bg-primary";
-  }
-  else { }
+  // Gestion de l'affichage du timeline
+  
+
+
+  useEffect(() => {
+    // Gerons les changements de colorations des traits du timeline
+    if (
+      location.pathname == "/Page1" ||
+      location.pathname == "/Page2" ||
+      location.pathname == "/Page3" ||
+      location.pathname == "/Page4" ||
+      location.pathname == "/Page5" ||
+      location.pathname == "/PageSecrete" ||
+      location.pathname == "/Page6" ||
+      location.pathname == "/Page7"
+    ) {
+      setColor1("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page2" || 
+      location.pathname == "/Page3" || 
+      location.pathname == "/Page4" || 
+      location.pathname == "/Page5" || 
+      location.pathname == "/PageSecrete" || 
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColor2("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page3" || 
+      location.pathname == "/Page4" || 
+      location.pathname == "/Page5" || 
+      location.pathname == "/PageSecrete" || 
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColor3("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page4" || 
+      location.pathname == "/Page5" || 
+      location.pathname == "/PageSecrete" || 
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColor4("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page5" || 
+      location.pathname == "/PageSecrete" || 
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColor5("bg-primary");
+    }
+    else if (
+      location.pathname == "/PageSecrete" || 
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColorSecrete("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page6" || 
+      location.pathname == "/Page7"
+    ) {
+      setColor6("bg-primary");
+    }
+    else if (
+      location.pathname == "/Page7"
+    ) {
+      setColor7("bg-primary");
+    }
+    else { }
+  }, [location.pathname])
+
 
   return (
     <div className='
@@ -155,104 +203,8 @@ const AuthPage = ({ children, admin = "" }) => {
             <div className='w-full flex flex-col items-center pb-5'>
               <Banniere />
               {
-                location.pathname != "/Login" &&
-                <div>
-                  <ul className="timeline">
-                    <li>
-                      <div className="timeline-start timeline-box">S'inscrire</div>
-                      <div className="timeline-middle">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="text-primary w-5 h-5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <hr className={timelineColor.color1} />
-                    </li>
-                    <li>
-                      <hr className={timelineColor.color2} />
-                      <div className="timeline-middle">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="text-primary h-5 w-5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div className="timeline-end timeline-box">iMac</div>
-                      <hr className="bg-primary" />
-                    </li>
-                    <li>
-                      <hr className="bg-primary" />
-                      <div className="timeline-start timeline-box">iPod</div>
-                      <div className="timeline-middle">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="text-primary h-5 w-5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <hr />
-                    </li>
-                    <li>
-                      <hr />
-                      <div className="timeline-middle">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="h-5 w-5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div className="timeline-end timeline-box">iPhone</div>
-                      <hr />
-                    </li>
-                    <li>
-                      <hr />
-                      <div className="timeline-start timeline-box">Apple Watch</div>
-                      <div className="timeline-middle">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="h-5 w-5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                location.pathname != "/login" &&
+                <span>Gestion du timeline</span>
               }
 
               {children}
