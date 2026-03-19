@@ -10,28 +10,26 @@ import Page6 from "./pages/RegisterPages/Page6";
 import PageSecrete from "./pages/RegisterPages/PageSecrete";
 import Navbar from "./components/Accueil/NavBar/Navbar";
 import Main from "./components/Accueil/Main/Main";
+import Dropdown from "./components/Accueil/Dropdown/Dropdown";
+import Accueil from "./components/Accueil/Accueil";
 
 function App() {
     return (
-        // <BrowserRouter>
-        //     <Routes>
-        //         <Route path="/" element={<Login />} />
-        //         <Route path="/login" element={<Login />} />
-        //         <Route path="/page1" element={<Page1 />} />
-        //         <Route path="/page2" element={<Page2 />} />
-        //         <Route path="/page3" element={<Page3 />} />
-        //         <Route path="/page4" element={<Page4 />} />
-        //         <Route path="/page5" element={<Page5 />} />
-        //         <Route path="/pagesecrete" element={<PageSecrete />} />
-        //         <Route path="/page6" element={<Page6 />} />
-        //         {/* <Route path="/page7" element={<Page7 />} /> */}
-        //     </Routes>
-        // </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Accueil />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/page1" element={<Page1 />} />
+                <Route path="/page2" element={<Page2 />} />
+                <Route path="/page3" element={<Page3 />} />
+                <Route path="/page4" element={<Page4 />} />
+                <Route path="/page5" element={<Page5 />} />
+                <Route path="/pagesecrete" element={<PageSecrete />} />
+                <Route path="/page6" element={<Page6 />} />
 
-        <div>
-            <Navbar/>
-            <Main/>
-        </div>
+            </Routes>
+        </BrowserRouter>
+
     )
 };
 

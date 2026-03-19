@@ -7,19 +7,19 @@ export function Button({ buttonText, type = "button", disabled }) {
 
     let position = "";
 
-    if(location.pathname == "/Page3"){
+    if (location.pathname == "/Page3") {
         position = "/Page4";
     }
-    else if(location.pathname == "/Page4"){
+    else if (location.pathname == "/Page4") {
         position = "/Page5";
     }
-    else if(location.pathname == "/Page5"){
+    else if (location.pathname == "/Page5") {
         position = "/PageSecrete";
     }
-    else if(location.pathname == "/PageSecrete"){
+    else if (location.pathname == "/PageSecrete") {
         position = "/Page6";
     }
-    else if(location.pathname == "/Page6"){
+    else if (location.pathname == "/Page6") {
         position = "/Page7";
     }
 
@@ -53,7 +53,7 @@ export function Button({ buttonText, type = "button", disabled }) {
     )
 }
 
-export function CodeButton({ icone, text, type = "button" }) {
+export function CodeButton({ icone = "", text, type = "button" }) {
     return (
         <button
             className="
@@ -65,9 +65,12 @@ export function CodeButton({ icone, text, type = "button" }) {
                 rounded-lg
                 btn-block
                 hover:bg-blue-800
-                hover:text-white
                 transition-colors
+                hover:text-white
                 duration-300
+                active:scale-97
+                transition-scale
+                ease-out
             ">
             <span className="md:mr-7" >{icone}</span>
             {text}

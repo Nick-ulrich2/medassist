@@ -45,7 +45,9 @@
 
 18 / 03 / 2026 (Nick)
 
-- Prototype de navbar fait, il ne manque plus qu'a ajouter les elements de la navbar et a faire la logique 
+- Prototype de navbar fait, il ne manque plus qu'a faire la logique 
+- Creation du Dropdown.jsx
+- logo.jsx
 
 
 

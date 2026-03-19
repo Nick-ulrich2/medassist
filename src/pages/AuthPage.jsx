@@ -175,7 +175,7 @@ const AuthPage = ({ children, admin = "" }) => {
                 */}
 
             <div>
-              <Link to="/Login" className=" flex text-lg btn btn-ghost">
+              <Link to="/" className=" flex text-lg btn btn-ghost">
                 <ArrowLeftIcon className="h-5 w-5" />
                 Retour
               </Link>

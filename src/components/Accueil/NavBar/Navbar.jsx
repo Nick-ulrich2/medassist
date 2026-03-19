@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Dropdown from '../Dropdown/Dropdown';
 
 
-const Navbar = () => {
+const Navbar = ({ element1, element2, element3, element4, element5 }) => {
     return (
         <nav className='
             flex justify-center items-center
@@ -35,16 +36,26 @@ const Navbar = () => {
 
                 <ul className='
                     flex
-                    justify-center
-                    gap-x-3
+                    justify-between
+                    w-1/2
                     max-md:hidden
-                    md:gap-x-10'
+                    '
                 >
-                    <li><a href="/"> element 1</a></li>
-                    <li><a href="/"> element 1</a></li>
-                    <li><a href="/"> element 1</a></li>
-                    <li><a href="/"> element 1</a></li>
-                    <li><a href="/"> element 1</a></li>
+                    <li>
+                        <Link to={`/${element1}`}>{element1}</Link>
+                    </li>
+                    <li>
+                        <Link>{element2}</Link>
+                    </li>
+                    <li>
+                        <Link>{element3}</Link>
+                    </li>
+                    <li>
+                        <Link>{element4}</Link>
+                    </li>
+                    <li>
+                        <Link>{element5}</Link>
+                    </li>
                 </ul>
             </div>
         </nav>
