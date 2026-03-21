@@ -12,7 +12,6 @@ import Navbar from "./components/Accueil/NavBar/Navbar";
 import Main from "./components/Accueil/Main/Main";
 import Dropdown from "./components/Accueil/Dropdown/Dropdown";
 import Accueil from "./components/Accueil/Accueil";
-import Example from "./Test/Test";
 
 function App() {
     return (
