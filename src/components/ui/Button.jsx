@@ -83,7 +83,7 @@ export function CodeButton({ icone = "", text, type = "button" }) {
                 active:scale-97
                 active:shadow-inner
             ">
-            <span className="md:mr-7" >{icone}</span>
+            <span className="md:mr-3" >{icone}</span>
             {text}
 
         </button>
