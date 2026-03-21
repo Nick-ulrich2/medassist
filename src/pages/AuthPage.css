@@ -1,0 +1,11 @@
+.back{
+  background-image: url('/background.png');
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .back {
+    background-image: url('/logo123.png'); 
+    background-size: auto; 
+  }
+}
