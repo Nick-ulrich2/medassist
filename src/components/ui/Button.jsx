@@ -35,17 +35,24 @@ export function Button({ buttonText, type = "button", disabled }) {
              * btn-primary == bg-blue-600 + son hover + epaisseur du texte + text-color
              */
             className="
-                btn
-                btn-block
+                btn btn-block
                 px-5 py-3
-                bg-blue-500
+                bg-blue-600
+                border-2 border-blue-800
                 text-lg font-bold text-white
                 rounded-xl
                 transition-all
-                duration-300
+                duration-200
+                ease-in-out
                 cursor-pointer
+                shadow-[6px_6px_12px_#bebebe,-6px_-6px_12px_#ffffff]
+
                 hover:bg-blue-700
-                hover:scale-y-105
+                hover:shadow-[8px_8px_16px_#bebebe,-8px_-8px_16px_#ffffff]
+                hover:scale-102
+
+                active:scale-97
+                active:shadow-inner
                 "
         >
             {buttonText}
@@ -57,20 +64,24 @@ export function CodeButton({ icone = "", text, type = "button" }) {
     return (
         <button
             className="
-                btn
+                btn btn-block
                 bg-blue-100
                 text-black
-                border-2
-                border-blue-800
+                border-2 border-blue-800
                 rounded-lg
-                btn-block
+                transition-all 
+                duration-200
+                cursor-pointer
+                ease-in-out
+                shadow-[6px_6px_12px_#bebebe,-6px_-6px_12px_#ffffff]
+
+                hover:shadow-[8px_8px_16px_#bebebe,-8px_-8px_16px_#ffffff]
                 hover:bg-blue-800
-                transition-colors
                 hover:text-white
-                duration-300
+                hover:scale-102
+
                 active:scale-97
-                transition-scale
-                ease-out
+                active:shadow-inner
             ">
             <span className="md:mr-7" >{icone}</span>
             {text}
@@ -91,11 +102,17 @@ export function RegisterButton({ leftIcon, title, description = "", rightIcon })
                 text-black
                 rounded-xl
                 transition-all
-                duration-300
+                duration-200
                 cursor-pointer
+                shadow-[6px_6px_12px_#bebebe,-6px_-6px_12px_#ffffff]
+
+                hover:shadow-[8px_8px_16px_#bebebe,-8px_-8px_16px_#ffffff]
                 hover:bg-blue-700
                 hover:text-white
-                hover:scale-105       
+                hover:scale-102
+
+                active:scale-97
+                active:shadow-inner       
             "
         >
             <div className="flex-none">{leftIcon}</div>

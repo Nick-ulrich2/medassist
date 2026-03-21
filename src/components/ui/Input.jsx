@@ -4,16 +4,17 @@ export function Input({ type = "text", value, onChange, id, placeholder, icone =
         <div className="
             input
             flex 
-            w-full
-            h-12
+            w-full h-12
             mb-3
-            border
-            border-gray-300
+            border border-gray-300
+            bg-gray-50 text-gray-800 placeholder-gray-400
             rounded-[10px]
-            hover:shadow-sm
-            hover:border
-            hover:border-blue-500
-            duration-100
+            shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]
+            transition-all duration-100
+            focus:outline-none
+            focus:bg-white
+            focus:border-blue-500
+            focus:ring-2 focus:ring-blue-200
         ">
             {/*
       focus-within:ring-2  ceci permet de mettre le focus sur l'element clique
@@ -48,15 +49,17 @@ export function InputPassword({ type, value, onChange, id, placeholder, icone1, 
         <div className="
             input
             flex 
-            w-full
-            h-12
+            w-full h-12
             mb-3
-            border
-            border-gray-300
+            border border-gray-300
             rounded-[10px]
-            hover:shadow-sm
-            hover:border
-            hover:border-blue-500
+            bg-gray-50 text-gray-800 placeholder-gray-400
+            shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]
+            transition-all
+            focus:outline-none
+            focus:bg-white
+            focus:border-blue-500
+            focus:ring-2 focus:ring-blue-100
             duration-100
         ">
             {/*

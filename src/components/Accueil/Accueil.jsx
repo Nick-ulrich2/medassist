@@ -3,6 +3,7 @@ import Main from './Main/Main'
 import Navbar from './NavBar/Navbar'
 import Dropdown from './Dropdown/Dropdown'
 import { CodeButton } from '../ui/Button'
+import { Link } from 'react-router-dom'
 
 const Accueil = () => {
   return (
@@ -28,7 +29,7 @@ const Accueil = () => {
           />
         }
         element4="langues"
-        element5={<CodeButton text="Se connecter"/>}
+        element5={<Link to="/login"><CodeButton text="Se connecter"/></Link>}
       />
     </div>
   )

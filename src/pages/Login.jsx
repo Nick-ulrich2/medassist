@@ -100,7 +100,7 @@ const Login = () => {
                 <div className='w-full my-1'>
                     <CodeButton icone={<LockClosedIcon className="text-blue-800 hover:text-white w-4 mr-2 md:w-5" />} text="Connexion avec un code unique" />
                 </div>
-                <div className='w-full text-sm text-center mt-2 mb-3'>
+                <div className='flex flex-col w-full text-sm text-center mt-2 mb-3'>
                     <span>Vous n'avez pas de compte ? </span>
                     <span>
                         <Link to="/page1" className='text-blue-800 font-bold underline'>
