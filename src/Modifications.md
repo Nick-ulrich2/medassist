@@ -49,6 +49,11 @@
 - Creation du Dropdown.jsx
 - logo.jsx
 
+21 / 03 / 2026 (T.F.A)
+- Modification au niveau de Button.jsx afin de les rendre plus gonfle
+- Modification des Input pour rendre le focus plus propre.
+- Ajout du lien au niveau du bouton "se connecter" de la page d'accueil pre-connexion
+
 
 
 
