@@ -54,7 +54,11 @@
 - Modification des Input pour rendre le focus plus propre.
 - Ajout du lien au niveau du bouton "se connecter" de la page d'accueil pre-connexion
 
-
+23 / 03 / 26 (Nick)
+- Animations navbar ok
+- Navbar mobile okay
+- Besoin d'une verification complete et d'une annotation de tous les manquants de celle ci en vu d'une amelioration ou d'un ajout apres remarque 
+- Passage a Hero.jsx
 
 
 
