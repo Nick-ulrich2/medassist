@@ -52,10 +52,10 @@ export default function Dropdown({ children, to = "#", dropContent }) {
                             animate="visible"
                             exit="exit"
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute left-1/2 top-12 -translate-x-1/2 bg-white text-black"
+                            className="backdrop-blur-sm bg-white/80 absolute left-1/2 top-12 -translate-x-1/2  text-black"
                         >
                             <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
-                            <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" />
+                            <div className="backdrop-blur-sm bg-white/30 absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 " />
                             {dropContent}
                         </motion.div>
                     )

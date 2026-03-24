@@ -4,6 +4,7 @@ import Dropdown, { DropdownContent } from './Dropdown/Dropdown';
 import { CodeButton } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import { ArrowRightOnRectangleIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import Hero from './Hero/Hero';
 
 const Accueil = () => {
 
@@ -69,7 +70,8 @@ const Accueil = () => {
   ]
   return (
     <div>
-<Navbar items={navbarItems}/>    
+      <Navbar items={navbarItems} />
+      <Hero/>
     </div>
   )
 }
