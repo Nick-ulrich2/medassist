@@ -137,7 +137,7 @@ function TypewriterLoop() {
   }, [text, isDeleting, indexTexte, textes]);
 
   return (
-    <p className="w-75 text-[18px] font-normal">
+    <p className="w-75 text-xl font-normal lg:text-2xl">
       {text}
     </p>
   );
