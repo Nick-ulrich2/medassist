@@ -17,8 +17,9 @@ const Navbar = ({ items }) => {
             flex justify-center items-center
             fixed top-0 z-50
             w-full
-            border-b-2 border-gray-200
+            border-b-2 border-gray-400
             py-4
+            backdrop-blur-sm bg-white/30
             '
         >
             <div className='

@@ -1,4 +1,4 @@
-23 / 02 / 26 (Nick)
+ 02 / 26 (Nick)
 
 - Modification du logo en sans serif, augmenter le weight et diminue son opacite
 - Creation d'un fichier AuthPage.css pour conditionnement d'affichage de background
@@ -64,3 +64,7 @@
 - Ajout de plusieurs phrases au niveau de la AuthPage.jsx avec le rendu ecrire et suppression rapide avec delai de 3 secondes 
 - BUG : Le Dropdown s'affiche sur les autres elements de la navBar 
 - Au niveau du hero, Je prefere une animation de fondu au lieu du defilement . 
+
+24 / 03 / 2026 (Nick)
+- Mise en place d'un carousel manuel sur hero.jsx
+- prochaine etape : correction du bug de la partie mobile de la navbar

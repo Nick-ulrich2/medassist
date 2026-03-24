@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Button } from "./components/ui/Button";
 import Login from "./pages/Login";
 import Page1 from "./pages/RegisterPages/Page1";
 import Page2 from "./pages/RegisterPages/Page2";
@@ -8,9 +7,6 @@ import Page4 from "./pages/RegisterPages/Page4";
 import Page5 from "./pages/RegisterPages/Page5";
 import Page6 from "./pages/RegisterPages/Page6";
 import PageSecrete from "./pages/RegisterPages/PageSecrete";
-import Navbar from "./components/Accueil/NavBar/Navbar";
-import Main from "./components/Accueil/Main/Main";
-import Dropdown from "./components/Accueil/Dropdown/Dropdown";
 import Accueil from "./components/Accueil/Accueil";
 
 function App() {
