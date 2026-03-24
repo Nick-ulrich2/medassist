@@ -67,4 +67,4 @@
 
 24 / 03 / 2026 (Nick)
 - Mise en place d'un carousel manuel sur hero.jsx
-- prochaine etape : appliquer infinity rotate, correction du bug de la partie mobile de la navbar
+- prochaine etape : correction du bug de la partie mobile de la navbar
