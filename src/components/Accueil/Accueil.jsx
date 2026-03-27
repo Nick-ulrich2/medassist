@@ -19,13 +19,12 @@ const Accueil = () => {
         <Dropdown to="#"
           dropContent={
             <DropdownContent
-              el1="c'est"
-              el2='toi'
-              el3='qui'
-              el4='va'
-              el5='remplir'
-              el6='ca'
-              el7='tu devais lire'
+              el1="Patients/Particuliers"
+              el2="Professionnels de santé"
+              el3="Entreprises"
+              el4="Pharmacies"
+              el5="Hôpitaux"
+              el6="IA et automatisation"
             />
           }
         >
@@ -37,7 +36,9 @@ const Accueil = () => {
       label: (
         <Dropdown
           dropContent={
-            <DropdownContent el1='tu vas trouver quoi mettre ici' />
+            <DropdownContent 
+              el1='tu vas trouver quoi mettre ici' 
+            />
           }
         >
           {/* Tu vas trouver le mot approprie a mettre */}
