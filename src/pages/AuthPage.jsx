@@ -97,6 +97,52 @@ const AuthPage = ({ children, admin = "" }) => {
     else { }
   }, [location.pathname])
 
+function TypewriterLoop() {
+  const textes = [
+    "Accédez à vos soins, vos dossiers médicaux, et à l'assistance médicale intelligente en toute sécurité.",
+    "Consultez vos informations de santé, suivez vos soins et bénéficiez d’une assistance IA fiable et sécurisée.",
+    "Vos dossiers médicaux, vos parcours de soins et une aide intelligente réunis dans une plateforme sécurisée.",
+    "Gérez votre santé en toute confiance grâce à un accès sécurisé à vos soins et à une assistance médicale boostée à l’IA.",
+    "Retrouvez vos dossiers, vos consultations et des recommandations intelligentes dans un espace médical protégé.",
+    "Une plateforme sécurisée pour accéder à vos soins, centraliser vos données médicales et profiter d’une IA au service de votre santé.",
+    "Simplifiez votre parcours médical avec un accès sûr à vos dossiers et à une assistance intelligente disponible à tout moment.",
+    "Vos soins, vos données médicales et votre assistance IA, réunis dans un environnement sécurisé et intuitif.",
+    "Profitez d’un accès sécurisé à vos dossiers médicaux et à une assistance médicale intelligente pensée pour vous accompagner.",
+    "Une expérience de santé plus simple, plus sûre et plus intelligente, avec vos soins et vos données au même endroit."
+  ];
+  const [indexTexte, setIndexTexte] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = textes[indexTexte];
+    let speed = isDeleting ? 10 : 50;
+
+    const timeout = setTimeout(() => {
+      setText((prev) =>
+        isDeleting
+          ? current.substring(0, prev.length - 1)
+          : current.substring(0, prev.length + 1)
+      );
+
+      if (!isDeleting && text === current) {
+        setTimeout(() => setIsDeleting(true), 3000);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setIndexTexte((prev) => (prev + 1) % textes.length);
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, indexTexte, textes]);
+
+  return (
+    <p className="w-75 text-xl font-normal lg:text-2xl">
+      {text}
+    </p>
+  );
+}
+
 
   return (
     <div className='
@@ -142,9 +188,7 @@ const AuthPage = ({ children, admin = "" }) => {
             <p className='text-4xl tracking-tight font-medium'>La santé</p>
             <p className='text-3xl font-light'>partout et pour tous</p>
           </div>
-          <p className='w-75 text-[18px] font-normal'>
-            Accédez à vos soins, vos dossiers médicaux, et à l'assistance médicale intelligente en toute sécurité.
-          </p>
+          {TypewriterLoop()}
         </div>
         <div className='
           container

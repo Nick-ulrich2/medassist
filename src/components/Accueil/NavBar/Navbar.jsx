@@ -1,61 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Dropdown from '../Dropdown/Dropdown';
+import { Banniere } from '../../ui/Banniere';
+import clsx from "clsx"; // une librairie permettant d'organiser un peu les classes
 
 
-const Navbar = ({ element1, element2, element3, element4, element5 }) => {
+const Navbar = ({ items }) => {
+
+    const [open, setOpen] = useState(false);
+
+    // cette fonction verifie et change l'etat de la variable ou du bouton qui sera clique
+    const handleClick = () => setOpen(prev => !prev);
+
+
     return (
         <nav className='
+            container
             flex justify-center items-center
-            fixed top-0 z-50
-            w-full
-            border-b-2 border-gray-200
-            py-7
+            fixed top-2 left-1/2 -translate-x-1/2 z-50
+            rounded-full
+            border-b-2 border-gray-400
+            py-4
+            backdrop-blur-sm bg-white/30
             '
         >
             <div className='
-                flex
-                justify-between
-                m-auto
-                w-full
-                max-w-screen-2xl
+                flex justify-between items-center    
+                w-full max-w-screen-2xl
                 px-5
                 xs:px-8
                 sm:px-16
                 '
             >
-                {/* <Link to="/">Logo</Link> je dois creer le chemin plus tard avec react router dom */}
-                <a href="">Logo</a>
+                <Banniere w1='w-10' w2='w-5.5' h='h-5.5' size1='text-2xl' size2='text-[10px]' />
 
-                <button aria-label="Ouvrir le menu" className='md:hidden'>
+                <button
+                    onClick={handleClick}
+                    aria-label="Ouvrir le menu"
+                    aria-expanded={open}
+                    className='lg:hidden relative'
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                     </svg>
                 </button>
 
 
-                <ul className='
-                    flex
-                    justify-between
-                    w-1/2
-                    max-md:hidden
-                    '
+                <ul className={clsx(
+                    "flex justify-between items-center w-1/2",
+                    "max-lg:right-0 max-lg:flex-col max-lg:w-full max-lg:h-fit max-lg:absolute max-lg:top-25 max-lg:text-xl max-lg:font-semibold max-lg:shadow-xl max-lg:transition-transform max-lg:ease-out max-lg:duration-300",
+                    open ? "max-lg:flex " : "max-lg:hidden"
+                )}
+
                 >
-                    <li>
-                        <Link to={`/${element1}`}>{element1}</Link>
-                    </li>
-                    <li>
-                        <Link>{element2}</Link>
-                    </li>
-                    <li>
-                        <Link>{element3}</Link>
-                    </li>
-                    <li>
-                        <Link>{element4}</Link>
-                    </li>
-                    <li>
-                        <Link>{element5}</Link>
-                    </li>
+                    {
+                        items.map((item, index) => (
+                            <li key={index} className={`${item.link && "group"} relative max-lg:my-4`}>
+                                {
+                                    item.link &&
+                                    <span className="group-hover:scale-x-100 scale-x-0 transition-transform duration-300 ease-out h-1 rounded-xl bg-blue-500 absolute -bottom-1 origin-left left-0 w-full"></span>
+                                }
+                                {item.link ? (
+                                    <Link to={item.link}>{item.label}</Link>
+                                ) : (
+                                    item.label
+                                )}
+                            </li>
+                        ))
+                    }
+
+                    {/* <span className="group-hover:w-full w-0 transition-all duration-300 ease-out h-1 rounded-xl bg-blue-500 absolute top-6 left-0"></span> */}
+
                 </ul>
             </div>
         </nav>

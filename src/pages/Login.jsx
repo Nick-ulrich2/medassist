@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import { Input, InputPassword } from '../components/ui/Input'
-import { EnvelopeIcon, LockClosedIcon, EyeIcon } from "@heroicons/react/16/solid";
+import { EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/16/solid";
 import { Button, CodeButton } from '../components/ui/Button';
 import { Or } from '../components/ui/Or';
 import AuthPage from './AuthPage';
@@ -10,6 +10,7 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -59,13 +60,13 @@ const Login = () => {
                     />
 
                     <InputPassword
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         value={password}
                         id="password"
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Mot de passe"
                         icone1={<LockClosedIcon className='w-4 opacity-70' />}
-                        icone2={<EyeIcon className='w-4 opacity-70' />}
+                        icone2={showPassword ? <EyeSlashIcon className='w-4 opacity-70' onClick={() => setShowPassword(false)} /> : <EyeIcon className='w-4 opacity-70' onClick={() => setShowPassword(true)} />}
                     />
                 </div>
 
