@@ -24,7 +24,7 @@ const Page1 = () => {
         },
         {
             leftIcon: <UserPlusIcon className='w-5 font-bold' />,
-            title: "Praticien",
+            title: "Professionnel de la santé",
             description: "Specialiste, Medecin, Infirmier, ...",
             rightIcon: <ArrowRightIcon className='w-4 font-bold' />
         },

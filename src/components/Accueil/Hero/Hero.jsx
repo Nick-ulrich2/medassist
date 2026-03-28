@@ -7,7 +7,7 @@ const Hero = () => {
     const carouselItems = [
         {
             id: "slide1",
-            src: "background.png",
+            src: "hero4.png",
             prev: "#slide4",
             next: "#slide2",
             color: '',
@@ -18,7 +18,7 @@ const Hero = () => {
         },
         {
             id: "slide2",
-            src: "background2.png",
+            src: "hero5.png",
             prev: "#slide1",
             next: "#slide3",
             color: '',
@@ -26,7 +26,7 @@ const Hero = () => {
         },
         {
             id: "slide3",
-            src: "background2.png",
+            src: "hero6.png",
             prev: "#slide2",
             next: "#slide4",
             color: '',
@@ -34,7 +34,7 @@ const Hero = () => {
         },
         {
             id: "slide4",
-            src: "background.png",
+            src: "hero7.png",
             prev: "#slide3",
             next: "#slide1",
             color: '',
@@ -77,7 +77,7 @@ const Hero = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
                     transition={{ duration: 0.7 }}
-                    className="absolute w-full h-4/5 object-cover"
+                    className="absolute w-full h-7/10 object-cover object-right md:object-cover"
                 />
             </AnimatePresence>
 

@@ -68,3 +68,12 @@
 24 / 03 / 2026 (Nick)
 - Mise en place d'un carousel manuel sur hero.jsx
 - prochaine etape : correction du bug de la partie mobile de la navbar
+
+(T. F. A)
+- Correction des fautes d'ortographe sur l'etendu de l'application jusqu'a present sauf dans modifications.md (Ici, on s'en fou des fautes d'orthographe)
+- Modifications pour l'inscription en generale (pas encore)
+- Modification de "praticien" par "professionnel de sante" c'est plus clair je trouve pour les plus idiots. (fait)
+- Nouvelles images pour le hero (pas encore )
+- Informations du dropdown modifie (Fait)
+- Ajout de la logique au niveau de l'oeil de "InputPassword"
+- Modification au niveau de la navBar au lieu de max-md j'ai mis max-lg pour que ca soit plus lisible 
