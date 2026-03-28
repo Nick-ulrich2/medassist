@@ -75,3 +75,5 @@
 - Modification de "praticien" par "professionnel de sante" c'est plus clair je trouve pour les plus idiots. (fait)
 - Nouvelles images pour le hero (pas encore )
 - Informations du dropdown modifie (Fait)
+- Ajout de la logique au niveau de l'oeil de "InputPassword"
+- Modification au niveau de la navBar au lieu de max-md j'ai mis max-lg pour que ca soit plus lisible 
