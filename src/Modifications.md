@@ -77,3 +77,10 @@
 - Informations du dropdown modifie (Fait)
 - Ajout de la logique au niveau de l'oeil de "InputPassword"
 - Modification au niveau de la navBar au lieu de max-md j'ai mis max-lg pour que ca soit plus lisible 
+
+28 / 03 / 2026 (NIck)
+- Tous les bugs de la navbar ont ete geres, augmentation legere du niveau de scalabilite
+- Creation d'un composant PlusIcon dans Banniere.jsx
+- Creation de baseBtn contenant les attributs tailwind qui sont identiques sur chaque composant bouton
+- Creation d'un InputWrapper dans Input.jsx
+- Je vais continuer a partir de Login.jsx

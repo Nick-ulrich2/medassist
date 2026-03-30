@@ -1,14 +1,37 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Dropdown({ children, to = "#", dropContent }) {
+
     const [active, setActive] = useState(false);
 
-    // Verifions s'il ya un contenu
-    const hasContent = Boolean(dropContent);
+    // Ajoutons une possibilte de cliquer en dehors pour fermer le dropdown
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (!e.target.closest(".dropdown")) {
+                setActive(false);
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
     // Si content afficher
-    const show = hasContent && active;
+    const show = dropContent && active;
+
+    // Verifions s'il s'agit d'un mobile et reagissons en consequence
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     // A mettre dans motion.div
     const dropdownVariants = {
@@ -19,12 +42,36 @@ export default function Dropdown({ children, to = "#", dropContent }) {
 
     return (
         <div
-            onMouseEnter={() => setActive(true)}
-            onMouseLeave={() => setActive(false)}
-            onClick={() => setActive(prev => !prev)}
-            className='relative w-fit h-fit'
+            // onMouseEnter et onMouseLeave s'il s'agit d'un grand ecran et onclick s'il s'agit d'un mobile ou tablette 
+            onMouseEnter={() => !isMobile && setActive(true)}
+            onMouseLeave={() => !isMobile && setActive(false)}
+
+            role="button" // div traitee comme un bouton, donc interactivite ajoutee
+            aria-expanded={active} // indique au lecteur d'ecran si le drop est ouvert ou ferme
+            aria-haspopup="true"
+            tabIndex={0} // Permet de donner un focus avec la touche tab
+
+            // Posibilite de l'utiliser a l'aide du clavier
+            onKeyDown={(e) => {
+                if (e.key === "Enter") setActive(prev => !prev);
+                if (e.key === "Escape") setActive(false);
+                if (e.key === " ") {
+                    e.preventDefault();
+                    setActive(prev => !prev);
+                }
+            }}
+
+            className='dropdown relative w-fit h-fit z-[100]'
         >
-            <Link to={to} className='relative'>
+            <Link
+                to={to}
+                className='relative'
+                onClick={(e) => {
+                    e.preventDefault();
+                    isMobile && setActive(prev => !prev)
+                }
+                }
+            >
                 {children}
                 <span
                     style={{
@@ -48,11 +95,22 @@ export default function Dropdown({ children, to = "#", dropContent }) {
                     show && (
                         <motion.div
                             variants={dropdownVariants}
+                            style={{ originY: 0 }}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="backdrop-blur-sm bg-white/80 absolute left-1/2 top-12 -translate-x-1/2  text-black"
+                            className="
+                                backdrop-blur-sm 
+                                bg-white/80 
+                                max-lg:bg-black 
+                                max-lg:text-white
+                                max-lg:rounded-md 
+                                absolute 
+                                left-1/2 
+                                -translate-x-1/2  
+                                max-w-[90vw]
+                            "
                         >
                             <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
                             <div className="backdrop-blur-sm bg-white/30 absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 " />
@@ -66,18 +124,15 @@ export default function Dropdown({ children, to = "#", dropContent }) {
 };
 
 
-export function DropdownContent({ el1 = "", el2 = "", el3 = "", el4 = "", el5 = "", el6 = "", el7 = "" }) {
-
-    // Faire un tableau dans accueil serait mieux, a faire au prochain push
-    const items = [el1, el2, el3, el4, el5, el6, el7];
+export function DropdownContent({ items = [] }) {
 
     return (
-        <ul className='w-64 p-6 shadow-xl text-center'>
+        <ul className='w-64 max-w-[90vw] p-6 shadow-xl text-center'>
 
             {
                 items.map((el, i) => (
                     <li key={i} className='mb-3 space-y-3 relative group'>
-                        <Link to="#" className='block text-sm'>{el}</Link>
+                        <Link to="#" className='block text-base lg:text-sm'>{el}</Link>
                         <span className="group-hover:w-full w-0 transition-all duration-300 ease-out h-1 rounded-xl bg-blue-500 absolute top-6 left-0"></span>
                     </li>
                 ))
