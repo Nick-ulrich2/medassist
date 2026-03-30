@@ -1,34 +1,54 @@
 
-export function Input({ type = "text", value, onChange, id, placeholder, icone = "" }) {
+
+export function InputWrapper({ children, id, icone1, icone2}) {
     return (
         <div className="
             input
             flex 
-            w-full h-12
-            mb-3
+            w-full h-12 max-lg:h-15
+            mb-3 px-2 max-lg:px-5
             border border-gray-300
             bg-gray-50 text-gray-800 placeholder-gray-400
-            rounded-[10px]
+            rounded-xl
             shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]
             transition-all duration-100
             focus:outline-none
             focus:bg-white
             focus:border-blue-500
             focus:ring-2 focus:ring-blue-200
+            items-center gap-2
         ">
-            {/*
-      focus-within:ring-2  ceci permet de mettre le focus sur l'element clique
-      focus-within:ring-blue-500  ceci permet de donner la couleur */}
-            <label
-                htmlFor={id}
-                className="
+            {
+                icone1 && <label
+                    htmlFor={id}
+                    className="
                     pr-2
                     text-slate-800
                 "
-            >
-                {icone}
-            </label>
+                >
+                    {icone1}
+                </label>
+            }
+            {children}
+            {
+                icone2 && <label
+                    htmlFor={id}
+                    className="
+                    pl-2
+                    text-slate-800
+                "
+                >
+                    {icone2}
+                </label>
+            }
+        </div>
+    )
+}
 
+
+export function Input({ type = "text", value, onChange, id, placeholder, icone = "" }) {
+    return (
+        <InputWrapper icone1={icone} id={id}>
             <input
                 type={type}
                 id={id}
@@ -36,66 +56,29 @@ export function Input({ type = "text", value, onChange, id, placeholder, icone =
                 onChange={onChange}
                 placeholder={placeholder}
                 className="
-                    text-md
+                    text-md max-lg:text-lg
                     outline-none
                 "
             />
-        </div>
+        </InputWrapper>
     )
 }
 
 export function InputPassword({ type, value, onChange, id, placeholder, icone1, icone2 }) {
     return (
-        <div className="
-            input
-            flex 
-            w-full h-12
-            mb-3
-            border border-gray-300
-            rounded-[10px]
-            bg-gray-50 text-gray-800 placeholder-gray-400
-            shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]
-            transition-all
-            focus:outline-none
-            focus:bg-white
-            focus:border-blue-500
-            focus:ring-2 focus:ring-blue-100
-            duration-100
-        ">
-            {/*
-      focus-within:ring-2  ceci permet de mettre le focus sur l'element clique
-      focus-within:ring-blue-500  ceci permet de donner la couleur */}
-            <label
-                htmlFor={id}
-                className="
-                    pr-2
-                    text-slate-800
-                "
-            >
-                {icone1}
-            </label>
-
+        <InputWrapper icone1={icone1} icone2={icone2} id={id} >
             <input
                 type={type}
+                aria-label="Mot de passe"
                 id={id}
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
                 className="
-                    text-md
+                    text-md max-lg:text-lg
                     outline-none
                 "
             />
-
-            <label
-                htmlFor={id}
-                className="
-                    pl-2
-                    text-slate-800
-                "
-            >
-                {icone2}
-            </label>
-        </div>
+        </InputWrapper>
     )
 }
