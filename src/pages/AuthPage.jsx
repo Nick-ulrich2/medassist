@@ -5,7 +5,6 @@ import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import "./AuthPage.css";
 import { Banniere, SimpleBanniere } from '../components/ui/Banniere'
 
-// Cette fonction provoque plusieurs re-renders
 export function TypewriterLoop() {
   const textes = [
     "Accédez à vos soins, vos dossiers médicaux, et à l'assistance médicale intelligente en toute sécurité.",
@@ -22,40 +21,26 @@ export function TypewriterLoop() {
   const [indexTexte, setIndexTexte] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const i = useRef(0); // Stocke une valeur qui ne provoque pas de re-render
+  const i = useRef(0);
 
   useEffect(() => {
-    const current = textes[indexTexte]; // Texte actuel
-    let speed = isDeleting ? 10 : 50; // Vitesse d'animation (suppression rapide)
+    const current = textes[indexTexte];
+    let speed = isDeleting ? 10 : 50;
 
     const timeout = setTimeout(() => {
-      // setText((prev) =>
-      //   isDeleting
-      //     ? current.substring(0, prev.length - 1)
-      //     : current.substring(0, prev.length + 1)
-      // );
+      setText((prev) =>
+        isDeleting
+          ? current.substring(0, prev.length - 1)
+          : current.substring(0, prev.length + 1)
+      );
 
-      setText(current.substring(0, i.current)); // Affiche le texte
-      // i.current est la position actuelle dans le texte
-      i.current = isDeleting ? i.current - 1 : i.current + 1; // mise a jour du curseur
-
-      //   if (!isDeleting && text === current) {
-      //     setTimeout(() => setIsDeleting(true), 3000);
-      //   } else if (isDeleting && text === "") {
-      //     setIsDeleting(false);
-      //     setIndexTexte((prev) => (prev + 1) % textes.length);
-      //   }
-      // }, speed);
-      if (!isDeleting && i.current > current.length) {
+      if (!isDeleting && text === current) {
         setTimeout(() => setIsDeleting(true), 3000);
-      }
-      else if (isDeleting && i.current < 0) {
+      } else if (isDeleting && text === "") {
         setIsDeleting(false);
         setIndexTexte((prev) => (prev + 1) % textes.length);
-        i.current = 0;
       }
     }, speed);
-
 
     return () => clearTimeout(timeout);
   }, [text, isDeleting, indexTexte, textes]);
@@ -86,6 +71,7 @@ const AuthPage = ({ children, admin = "" }) => {
   const activeIndex = timelinePages.indexOf(location.pathname);
 
   const colors = timelinePages.map((_, index) => index <= activeIndex ? "bg-primary" : "");
+
 
   return (
     <div className='
@@ -131,7 +117,7 @@ const AuthPage = ({ children, admin = "" }) => {
             <p className='text-4xl tracking-tight font-medium'>La santé</p>
             <p className='text-3xl font-light'>partout et pour tous</p>
           </div>
-          {<TypewriterLoop />}
+          {<TypewriterLoop/>}
         </div>
         <div className='
           container
