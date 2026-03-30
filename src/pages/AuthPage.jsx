@@ -1,103 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import "./AuthPage.css";
 import { Banniere, SimpleBanniere } from '../components/ui/Banniere'
 
-
-const AuthPage = ({ children, admin = "" }) => {
-
-  let location = useLocation();
-
-  // Je n'ai pas encore trouve un moyen optimal de gerer ceci, utilisons d'abord cette methode
-  const [color1, setColor1] = useState("");
-  const [color2, setColor2] = useState("");
-  const [color3, setColor3] = useState("");
-  const [color4, setColor4] = useState("");
-  const [color5, setColor5] = useState("");
-  const [colorSecrete, setColorSecrete] = useState("");
-  const [color6, setColor6] = useState("");
-  const [color7, setColor7] = useState("");
-
-  // Gestion de l'affichage du timeline
-  
-
-
-  useEffect(() => {
-    // Gerons les changements de colorations des traits du timeline
-    if (
-      location.pathname == "/Page1" ||
-      location.pathname == "/Page2" ||
-      location.pathname == "/Page3" ||
-      location.pathname == "/Page4" ||
-      location.pathname == "/Page5" ||
-      location.pathname == "/PageSecrete" ||
-      location.pathname == "/Page6" ||
-      location.pathname == "/Page7"
-    ) {
-      setColor1("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page2" || 
-      location.pathname == "/Page3" || 
-      location.pathname == "/Page4" || 
-      location.pathname == "/Page5" || 
-      location.pathname == "/PageSecrete" || 
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColor2("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page3" || 
-      location.pathname == "/Page4" || 
-      location.pathname == "/Page5" || 
-      location.pathname == "/PageSecrete" || 
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColor3("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page4" || 
-      location.pathname == "/Page5" || 
-      location.pathname == "/PageSecrete" || 
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColor4("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page5" || 
-      location.pathname == "/PageSecrete" || 
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColor5("bg-primary");
-    }
-    else if (
-      location.pathname == "/PageSecrete" || 
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColorSecrete("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page6" || 
-      location.pathname == "/Page7"
-    ) {
-      setColor6("bg-primary");
-    }
-    else if (
-      location.pathname == "/Page7"
-    ) {
-      setColor7("bg-primary");
-    }
-    else { }
-  }, [location.pathname])
-
-function TypewriterLoop() {
+export function TypewriterLoop() {
   const textes = [
     "Accédez à vos soins, vos dossiers médicaux, et à l'assistance médicale intelligente en toute sécurité.",
     "Consultez vos informations de santé, suivez vos soins et bénéficiez d’une assistance IA fiable et sécurisée.",
@@ -113,6 +21,7 @@ function TypewriterLoop() {
   const [indexTexte, setIndexTexte] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const i = useRef(0);
 
   useEffect(() => {
     const current = textes[indexTexte];
@@ -142,6 +51,26 @@ function TypewriterLoop() {
     </p>
   );
 }
+
+const AuthPage = ({ children, admin = "" }) => {
+
+  let location = useLocation();
+
+  // Je n'ai pas encore trouve un moyen optimal de gerer ceci, utilisons d'abord cette methode
+  const timelinePages = [
+    "/Page1",
+    "/Page2",
+    "/Page3",
+    "/Page4",
+    "/Page5",
+    "/PageSecrete",
+    "/Page6",
+    "/Page7"
+  ];
+
+  const activeIndex = timelinePages.indexOf(location.pathname);
+
+  const colors = timelinePages.map((_, index) => index <= activeIndex ? "bg-primary" : "");
 
 
   return (
@@ -188,7 +117,7 @@ function TypewriterLoop() {
             <p className='text-4xl tracking-tight font-medium'>La santé</p>
             <p className='text-3xl font-light'>partout et pour tous</p>
           </div>
-          {TypewriterLoop()}
+          {<TypewriterLoop/>}
         </div>
         <div className='
           container

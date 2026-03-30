@@ -6,7 +6,6 @@ import Page3 from "./pages/RegisterPages/Page3";
 import Page4 from "./pages/RegisterPages/Page4";
 import Page5 from "./pages/RegisterPages/Page5";
 import Page6 from "./pages/RegisterPages/Page6";
-import PageSecrete from "./pages/RegisterPages/PageSecrete";
 import Accueil from "./components/Accueil/Accueil";
 
 function App() {
@@ -17,11 +16,6 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/page1" element={<Page1 />} />
                 <Route path="/page2" element={<Page2 />} />
-                <Route path="/page3" element={<Page3 />} />
-                <Route path="/page4" element={<Page4 />} />
-                <Route path="/page5" element={<Page5 />} />
-                <Route path="/pagesecrete" element={<PageSecrete />} />
-                <Route path="/page6" element={<Page6 />} />
 
             </Routes>
         </BrowserRouter>

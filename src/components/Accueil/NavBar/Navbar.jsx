@@ -31,25 +31,38 @@ const Navbar = ({ items }) => {
                 sm:px-16
                 '
             >
+                {/* Logo */}
                 <Banniere w1='w-10' w2='w-5.5' h='h-5.5' size1='text-2xl' size2='text-[10px]' />
 
+                {/* Affichage Hamburger sur phone */}
                 <button
                     onClick={handleClick}
                     aria-label="Ouvrir le menu"
                     aria-expanded={open}
                     className='lg:hidden relative'
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        strokeWidth={1.5} 
+                        stroke="currentColor" 
+                        className="size-6"
+                    >
+                        <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" 
+                        />
                     </svg>
                 </button>
 
 
                 <ul className={clsx(
-                    "flex justify-between items-center w-1/2",
-                    "max-lg:right-0 max-lg:flex-col max-lg:w-full max-lg:h-fit max-lg:absolute max-lg:top-25 max-lg:text-xl max-lg:font-semibold max-lg:shadow-xl max-lg:transition-transform max-lg:ease-out max-lg:duration-300",
-                    open ? "max-lg:flex " : "max-lg:hidden"
-                )}
+                        "flex justify-between items-center w-1/2",
+                        "max-lg:backdrop-blur-lg max-lg:rounded-lg max-lg:bg-white/90 max-lg:right-0 max-lg:flex-col max-lg:w-full max-lg:h-fit max-lg:absolute max-lg:top-25 max-lg:text-xl max-lg:font-semibold max-lg:shadow-xl max-lg:transition-transform max-lg:ease-out max-lg:duration-300",
+                        open ? "max-lg:flex " : "max-lg:hidden"
+                    )}
 
                 >
                     {

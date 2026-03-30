@@ -6,11 +6,64 @@ import { Button, CodeButton } from '../components/ui/Button';
 import { Or } from '../components/ui/Or';
 import AuthPage from './AuthPage';
 
+export function LoginHeader() {
+    return (
+        <div className='w-full'>
+            <h1
+                className='
+                    text-2xl text-center font-bold text-blue-900
+                    mb-3 max-lg:mt-7 max-lg:mb-5
+                    opacity-95
+                    max-lg:text-4xl
+                '
+            >
+                Se connecter
+            </h1>
+        </div>
+    )
+}
+
+export function Inputs({email, setEmail, showPassword, password, setPassword, setShowPassword}) {
+    return (
+        <div className='w-full flex flex-col gap-1 justify-between'>
+            <Input
+                type="text"
+                value={email}
+                id="email"
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Adresse e-mail"
+                icone={
+                    <EnvelopeIcon
+                        className='w-4 max-lg:w-5 opacity-70 '
+                    />
+                }
+            />
+
+            <InputPassword
+                type={showPassword ? "text" : "password"}
+                value={password}
+                id="password"
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Mot de passe"
+                icone1={<LockClosedIcon className='w-4 max-lg:w-5 opacity-70' />}
+                icone2={
+                    showPassword ?
+                        <EyeSlashIcon aria-label='Masquer le mot de passe' className='w-4 max-lg:w-5 opacity-70' onClick={() => setShowPassword(false)} /> :
+                        <EyeIcon aria-label='Afficher le mot de passe' className='w-4 max-lg:w-5 opacity-70' onClick={() => setShowPassword(true)} />
+                }
+            />
+        </div>
+    )
+}
+
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+
+    // Fonctionn de validation du formulaire 
+    const isFormValid = email.trim() && password.trim();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -31,51 +84,16 @@ const Login = () => {
                     items-center
                 '
             >
+                <LoginHeader />
 
-                <div className='w-full'>
-                    <h1
-                        className='
-                            text-2xl text-center font-bold text-blue-900
-                            mb-3
-                            opacity-95
-                            md:text-3xl
-                            '
-                    >
-                        Se connecter
-                    </h1>
-                </div>
+                <Inputs email={email} setEmail={setEmail} showPassword={showPassword} password={password} setPassword={setPassword} setShowPassword={setShowPassword}/>
 
-                <div className='w-full flex flex-col gap-1 justify-between'>
-                    <Input
-                        type="text"
-                        value={email}
-                        id="email"
-                        onChange={e => setEmail(e.target.value)}
-                        placeholder="Adresse e-mail"
-                        icone={
-                            <EnvelopeIcon
-                                className='w-4 opacity-70 '
-                            />
-                        }
-                    />
-
-                    <InputPassword
-                        type={showPassword ? "text" : "password"}
-                        value={password}
-                        id="password"
-                        onChange={e => setPassword(e.target.value)}
-                        placeholder="Mot de passe"
-                        icone1={<LockClosedIcon className='w-4 opacity-70' />}
-                        icone2={showPassword ? <EyeSlashIcon className='w-4 opacity-70' onClick={() => setShowPassword(false)} /> : <EyeIcon className='w-4 opacity-70' onClick={() => setShowPassword(true)} />}
-                    />
-                </div>
-
-                <span className='w-full text-xs mb-4 font-semibold opacity-75'>
-                    <a href="#" className='float-end text-blue-800' >Mot de passe oublié ?</a>
+                <span className='w-full mb-4 font-semibold opacity-75'>
+                    <Link to="#" className='text-sm max-lg:text-md float-end text-blue-800' >Mot de passe oublié ?</Link>
                 </span>
 
                 <div className='w-full'>
-                    <Button type="submit" disabled={!email || !password} buttonText="Se connecter" />
+                    <Button type="submit" disabled={!isFormValid} buttonText="Se connecter" />
                 </div>
 
                 <div className='w-full mt-3'>
@@ -84,53 +102,58 @@ const Login = () => {
 
                 <div className='
                         text-center 
-                        mb-2 
+                        mb-2 max-lg:mb-4
                         whitespace-nowrap 
-                        text-md 
+                        text-md max-lg:text-xl
                         font-medium 
-                        leading-4 '>
+                        leading-4 max-lg:leading-6
+                    '
+                >
                     Connexion securisee avec OTP <br />
                     <span className='
-                            text-xs 
+                            text-xs max-lg:text-lg
                             font-light 
-                            '>
+                        '
+                    >
                         En utilisant un code unique
                     </span>
                 </div>
 
                 <div className='w-full my-1'>
-                    <CodeButton icone={<LockClosedIcon className="text-blue-800 hover:text-white w-4 mr-2 md:w-5" />} text="Connexion avec un code unique" />
+                    <CodeButton icone={<LockClosedIcon className="text-blue-800 hover:text-white w-4 mr-2 md:w-5 max-lg:w-6" />} text="Connexion avec un code unique" />
                 </div>
-                <div className='flex flex-col w-full text-sm text-center mt-2 mb-3'>
+
+                <div className='flex flex-col w-full text-sm max-lg:text-lg text-center my-3'>
                     <span>Vous n'avez pas de compte ? </span>
                     <span>
-                        <Link to="/page1" className='text-blue-800 font-bold underline'>
+                        <Link to="/page1" className='text-blue-800 max-lg:text-xl font-bold underline'>
                             Créer un compte
                         </Link>
                     </span>
                 </div>
+
                 <div
                     className='
                         text-center 
                         whitespace-nowrap 
-                        text-xs 
-                        leading-4 my-3'
+                        text-xs max-lg:text-[16px]
+                        leading-4 max-lg:leading-5 my-3'
                 >
                     En continuant, vous acceptez
-                    nos <a
+                    nos <Link
                         className='
                                 text-blue-800 
                                 font-semibold'
-                    > Conditons</a>
+                    > Conditons</Link>
                     <br />
-                    et notre <a
+                    et notre <Link
                         className='
                                 text-blue-800 
                                 font-semibold'
-                    >Politique de confidentialite</a>
+                    >Politique de confidentialite</Link>
                 </div>
 
-                <p className='text-sm text-center'>© 2026 MedAssist+</p>
+                <p className='text-sm max-lg:text-md max-lg:mt-8 text-center'>© 2026 MedAssist+</p>
             </form>
         </AuthPage>
     )

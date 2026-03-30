@@ -9,6 +9,26 @@ import Hero1 from "./Hero/Hero1"
 
 const Accueil = () => {
 
+  // Tu dois creer un tableau pour les elements du dropDown comme ceci
+  const DropItems = [
+    "Patients / Particuliers",
+    "Professionnels de santé",
+    "Entreprises",
+    "Pharmacies",
+    "Hôpitaux",
+    "IA et automatisation"
+  ]
+
+  const DropItemsLang = [
+    "Francais",
+    "Anglais",
+    "Allemand",
+    "Espagnol",
+    "Portugais",
+    "Lingala"
+  ]
+
+
   // tableau a passer pour remplir la navbar
   const navbarItems = [
     {
@@ -20,12 +40,7 @@ const Accueil = () => {
         <Dropdown to="#"
           dropContent={
             <DropdownContent
-              el1="Patients/Particuliers"
-              el2="Professionnels de santé"
-              el3="Entreprises"
-              el4="Pharmacies"
-              el5="Hôpitaux"
-              el6="IA et automatisation"
+              items={DropItems}
             />
           }
         >
@@ -37,21 +52,23 @@ const Accueil = () => {
       label: (
         <Dropdown
           dropContent={
-            <DropdownContent 
-              el1='tu vas trouver quoi mettre ici' 
+            <DropdownContent
+              items={DropItems}
             />
           }
         >
           {/* Tu vas trouver le mot approprie a mettre */}
           Fonctionnement
-        </Dropdown>
+        </Dropdown >
       )
     },
     {
       label: (
-        <Dropdown
+        <Dropdown to="#"
           dropContent={
-            <DropdownContent el1='Francais' el2='English' el3='Deutsh' el4='Portugal' el5='Autres' />
+            <DropdownContent
+              items={DropItemsLang}
+            />
           }
         >
           {/* Tu vas trouver le mot approprie a mettre */}
