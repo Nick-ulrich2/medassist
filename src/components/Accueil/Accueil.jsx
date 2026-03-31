@@ -5,6 +5,7 @@ import { CodeButton } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import { ArrowRightOnRectangleIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import Hero from './Hero/Hero';
+import Hero1 from "./Hero/Hero1"
 
 const Accueil = () => {
 
@@ -89,7 +90,7 @@ const Accueil = () => {
   return (
     <div>
       <Navbar items={navbarItems} />
-      <Hero />
+      <Hero1/>
     </div>
   )
 }

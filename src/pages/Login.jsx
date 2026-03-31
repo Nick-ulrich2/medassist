@@ -23,7 +23,7 @@ export function LoginHeader() {
     )
 }
 
-export function Inputs({email, setEmail, showPassword, password, setShowPassword}) {
+export function Inputs({email, setEmail, showPassword, password, setPassword, setShowPassword}) {
     return (
         <div className='w-full flex flex-col gap-1 justify-between'>
             <Input
@@ -86,7 +86,7 @@ const Login = () => {
             >
                 <LoginHeader />
 
-                <Inputs email={email} setEmail={setEmail} showPassword={showPassword} password={password} setShowPassword={setShowPassword}/>
+                <Inputs email={email} setEmail={setEmail} showPassword={showPassword} password={password} setPassword={setPassword} setShowPassword={setShowPassword}/>
 
                 <span className='w-full mb-4 font-semibold opacity-75'>
                     <Link to="#" className='text-sm max-lg:text-md float-end text-blue-800' >Mot de passe oublié ?</Link>

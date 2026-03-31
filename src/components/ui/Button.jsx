@@ -52,6 +52,65 @@ export function Button({ buttonText, type = "button", disabled }) {
     )
 }
 
+export function SimpleButton({ buttonText, type = "button", disabled }) {  //N'est pas un bouton block
+    // Variable qui contient toutes les infos en rapport avec la position actuelle
+    const location = useLocation();
+
+    let position = "";
+
+    if (location.pathname == "/Page3") {
+        position = "/Page4";
+    }
+    else if (location.pathname == "/Page4") {
+        position = "/Page5";
+    }
+    else if (location.pathname == "/Page5") {
+        position = "/PageSecrete";
+    }
+    else if (location.pathname == "/PageSecrete") {
+        position = "/Page6";
+    }
+    else if (location.pathname == "/Page6") {
+        position = "/Page7";
+    }
+
+    return (
+        <Link
+            // Naviguons en fonction de l'url
+            to={position}
+            type={type}
+            disabled={disabled}
+
+            /**
+             * btn-block == w-full
+             * btn-primary == bg-blue-600 + son hover + epaisseur du texte + text-color
+             */
+            className="
+                btn 
+                px-10 py-6
+                bg-blue-700
+                border-2 border-blue-800
+                text-lg font-bold text-white
+                rounded-full
+                transition-all
+                duration-200
+                ease-in-out
+                cursor-pointer
+                shadow-[6px_6px_12px_#bebebe,-6px_-6px_12px_#ffffff]
+
+                hover:bg-blue-700
+                hover:shadow-[8px_8px_16px_#bebebe,-8px_-8px_16px_#ffffff]
+                hover:scale-102
+
+                active:scale-97
+                active:shadow-inner
+                "
+        >
+            {buttonText}
+        </Link>
+    )
+}
+
 export function CodeButton({ icone = "", text, type = "button" }) {
     return (
         <button

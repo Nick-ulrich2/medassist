@@ -84,3 +84,6 @@
 - Creation de baseBtn contenant les attributs tailwind qui sont identiques sur chaque composant bouton
 - Creation d'un InputWrapper dans Input.jsx
 - Je vais continuer a partir de Login.jsx
+
+31/03/2026 (T. F. A)
+- Proposition d'un nouvel Hero dasn le dossier Hero1.jsx(Je le trouve meilleur pas a cause de son design qui est d'ailleurs plus beau je trouve, mais a sa meilleure adaptabilite en version mobile )
